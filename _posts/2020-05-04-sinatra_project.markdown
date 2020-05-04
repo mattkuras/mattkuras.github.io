@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Sinatra Project "
-date:       2020-05-04 20:40:08 +0000
+date:       2020-05-04 16:40:09 -0400
 permalink:  sinatra_project
 ---
 
@@ -10,9 +10,10 @@ Sinatra is a light-weight framework used to build web applications. I’ve never
 
 **To begin**
 
-	First, one must brainstorm. I’ve quickly learned that if I dive into the first strategy that pops into my head it’s very unlikely to be the cleanest, most efficient choice. I decided to tie my project to something simple and interesting (to me) so I decided to build a site that allows hikers to find and create hikes to share with the world. Sort of similar to the website theoutbound.com. 
+First, one must brainstorm. I’ve quickly learned that if I dive into the first strategy that pops into my head it’s very unlikely to be the cleanest, most efficient choice. I decided to tie my project to something simple and interesting (to me) so I decided to build a site that allows hikers to find and create hikes to share with the world. Sort of similar to the website theoutbound.com. 
 
-	File structures have thus far given me trouble, but the number of files and folders in this project compared to the past required me to delve deeper in my understanding of each part. To test my knowledge, I created two project folders; one in which I manually added each file and folder, and one in which I generated the project with the Corneal Gem. Corneal is a Ruby gem that is a Sinatra app generator with Rails-like simplicity. And I wasn’t far off at all with my original manually constructed file structure! Eventually, it came to look like this. 
+File structures have thus far given me trouble, but the number of files and folders in this project compared to the past required me to delve deeper in my understanding of each part. To test my knowledge, I created two project folders; one in which I manually added each file and folder, and one in which I generated the project with the Corneal Gem. Corneal is a Ruby gem that is a Sinatra app generator with Rails-like simplicity. And I wasn’t far off at all with my original manually constructed file structure! Eventually, it came to look like this. 
+
 
 
 
@@ -20,6 +21,7 @@ Sinatra is a light-weight framework used to build web applications. I’ve never
     ├── Gemfile.lock
     ├── README.md
     ├── Rakefile
+		
     ├── app
     │ ├── controllers
     │ │ ├── application_controller.rb
