@@ -15,7 +15,7 @@ First, one must brainstorm. I’ve quickly learned that if I dive into the first
 File structures have thus far given me trouble, but the number of files and folders in this project compared to the past required me to delve deeper in my understanding of each part. To test my knowledge, I created two project folders; one in which I manually added each file and folder, and one in which I generated the project with the Corneal Gem. Corneal is a Ruby gem that is a Sinatra app generator with Rails-like simplicity. And I wasn’t far off at all with my original manually constructed file structure! Eventually, it came to look like this. 
 
 
-
+```
 
 ├── Gemfile
     ├── Gemfile.lock
@@ -49,13 +49,14 @@ File structures have thus far given me trouble, but the number of files and fold
     ├── config.ru
     ├── db
     ├── public
+		```
 
 And all of this was created for me by the Corneal Gem! I hope every project forever is like this!
 
 **Gem File**
 
 My gem file looked like :
-
+```
 source 'http://rubygems.org'
 
 gem 'sinatra'
@@ -76,7 +77,7 @@ group :test do
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end
-
+```
 
 
 To briefly go down the list:
