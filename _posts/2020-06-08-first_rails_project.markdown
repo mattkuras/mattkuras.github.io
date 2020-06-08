@@ -176,7 +176,8 @@ We only want to display links to the communites if we are in the homepage index.
 **Likes**
 
 Similar to other social media platforms, we have a like button. Like is its own class and each time the button is hit the post gains another like with a user id and post id. The likes#create action is one of the more complex actions in this app, as there are many different places to redirect to and I wanted to prevent users from liking the same post twice.
-```def create
+```
+def create
     @post = Post.find_by(id: params[:like][:post_id])
     if @post.likes.any? {|like| like.user.id == current_user.id}
       redirect_to posts_path 
