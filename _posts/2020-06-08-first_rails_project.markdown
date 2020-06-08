@@ -151,16 +151,18 @@ def index
       @user = current_user
     end
   end
+	
 	```
 	
-	``` if params[:community_id]``` serves the purpose of checking whether its being called inside a nested route. If so, it is to index the posts with a community id matching the id in the params. There are two nested routes. "/community/:id/posts" and "/community/:id/posts/:id". The nested routes took quite a while to get right, and in some places needed to settle with linking the route with interpolation rather than using a url helper. 
+	``` if params[:community_id] ``` serves the purpose of checking whether its being called inside a nested route. If so, it is to index the posts with a community id matching the id in the params. There are two nested routes. "/community/:id/posts" and "/community/:id/posts/:id". The nested routes took quite a while to get right, and in some places needed to settle with linking the route with interpolation rather than using a url helper. 
 	
-	One may also notice the line of code ```@posts = Community.find_by(id:params[:community_id]).posts``` 
-	This is the required scope method that uses ActiveRecord queries, defined in the post model as ```scope :reg_posts, -> {where(community_id: nil)}```
+	One may also notice the line of code ``` @posts = Community.find_by(id:params[:community_id]).posts ``` 
+	This is the required scope method that uses ActiveRecord queries, defined in the post model as ``` scope :reg_posts, -> {where(community_id: nil)} ```
 	If the community_id is not found in the params, then we want all of the "regular" posts displayed. Ones without a community id because they are meant to be generic.
 	
 	If the community id is absent from the params, then you may see that @user is not defined. This serves its purpose in the posts#index view here:
-	```<%if @user%>
+	``` 
+	<%if @user%>
     <ul>
     <% @user.identities.each do |i|%>
     <%id = i.community_id%>
@@ -171,7 +173,7 @@ def index
 <%end %>
 ```
 
-We only want to display links to the communites if we are in the homepage index. However if we follow the link it will take us to the community#show page, where we may follow another link to the posts#index nested inside community#show. And now the communities are gone thanks to the above logic. We didn't hit ```else``` in the index controller so the communities are absent. 
+We only want to display links to the communites if we are in the homepage index. However if we follow the link it will take us to the community#show page, where we may follow another link to the posts#index nested inside community#show. And now the communities are gone thanks to the above logic. We didn't hit ``` else ``` in the index controller so the communities are absent. 
 
 **Likes**
 
