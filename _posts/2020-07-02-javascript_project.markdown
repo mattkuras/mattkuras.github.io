@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Javascript Project"
-date:       2020-07-02 17:01:41 +0000
+date:       2020-07-02 13:01:42 -0400
 permalink:  javascript_project
 ---
 
@@ -32,7 +32,7 @@ Using Rails console I checked to see that my models' relationships were in order
 
 CORS is designed to prevent scripts like fetch() from one origin accessing a resource from a different origin unless that resource specifically states that it expects to share. This provides a solution that allows us to send fetch requests to our server from our browser.
 
-**Rendering Trips**
+**Rendering Objects and Forms**
 
 Using code for nice html "cards" once sent to me by a friend, I built my trips into those using javascript. I had never rendered html with javascript before, so it hadn't occurred to me how much more code is required to render a form with javascript commands rather than simply placing a form or card in the html file. But having a clean, bare html file to work with was quite appealing so I did this for all my forms! For example this is the code that it took to render my new user form:
 ```static renderForm(){
@@ -70,7 +70,20 @@ Using code for nice html "cards" once sent to me by a friend, I built my trips i
         subButton.type = "submit"
         subButton.value = "Submit"
         form.appendChild(subButton)
-    }```
+    } 
+		``` 
 		
+		One can see a pattern. Use some sort of selector to select a ```div``` (or wherever you'd like to display your form; create elements using ``` document.createElement('element') ```;  add attributes, innertext, classes, etc to the created element; and use the ```appendChild``` method to add the element to the container or form. I repeated a similar process for rendering user objects, trip objects, and a form to create a trip. 
 		
+		The act of rendering our form like this keeps our html code cleaner, and addresses the concern of the seperation of concerns. A larger, more complex version of such an app could get messy quickly. So it seems appropriate for the JS User class to display code concerning a user. That is not to say that my app does that as efficiently as possible. There was not a large focus on JS file structure in this unit (or any focus really), hence why it wasn't mentioned in the project requirements. But after speaking with a former flatiron student and seeing his project, I can see that there is a lot to learn about possible ways to structure an application with javascript. 
+
+
+**Trip Creation Work Around**
+
+As I mentioned earlier, after days of working I encountered an obstacle that threw a wrench in my project. I had planned on using a ``` has_many ``` relationship of User has many Trips. However, since I initalized my app to use Rails as an API, the middleware that allows the sessions hash to function normally was disabled. And I wasted a lot of time trying to sort out why my user would not stay logged in. Using byebugs and byebugs searching for the disconnect, I found that a user was being created and persisted, but as soon as the program exited the the create action, the ``` current_user``` method would return nil. Google searches eventually led me to what was going on. This was quite an issue. Because a trip belongs to a user, it needed to be initialized with a user_id, so there were not many seemless solutions left to make this work.
+
+What I decided to do was to render the user's attributes somewhere on the screen, including the user_id that received an HTML id in order to be able to grab that user's id. So after a user signed in, the program automatically ran the function ```renderUser()``` so that when the user rendered the form to make a new trip, the value for user_id on the screen was automatically inserted into the form's user_id field that was then sent to the controller to create a new user. So even though no user was technically signed in, the app was able to know who was making a trip.
+
+Because of my lack of foresight into this problem, I spent far too much time trying to sort it out, which prevented me from incorporating many other features into the app before submission. But alas the project requirements were met. 
+
 		
