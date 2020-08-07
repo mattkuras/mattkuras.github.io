@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Final Project "
-date:       2020-08-07 18:42:46 +0000
+date:       2020-08-07 14:42:47 -0400
 permalink:  final_project
 ---
 
@@ -49,4 +49,6 @@ ReactDOM.render(
     </Router>
   </Provider>
 ```
-The provider is an imported feature that allows all components wrapped inside of it access to the redux store. And since ```<App/>``` is rendering all of my other components, we wrap it here. 
+The provider is an imported feature that allows all components wrapped inside of it access to the redux store. And since ```<App/>``` is rendering all of my other components, we wrap it here. Above that bit of code you can see we use the create store function provided by Redux to set a store variable ```store```. And above that we use compose to gain access to in-browser dev tools to use with Redux. Compose is a functional programming utility, and is included in Redux as a convenience. We want to use it to apply several store enhancers in a row. One of which is Thunk. Thunk is middleware that allows one to send asynchronous requests to an external source by allowing the action creator to return a function rather than an object. That returned function receives the store's dispatch function, and with that we are able to dispatch multiple actions: one to place the state in a loading state, and another to update our store with the returned data.
+
+
