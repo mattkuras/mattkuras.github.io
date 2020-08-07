@@ -45,4 +45,9 @@ In order to meet the requirement of utilizing Redux middleware, I had to set up 
 ``` ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider> ```
 The provider is an imported feature that allows all components wrapped inside of it access to the redux store. And since  ``` <App/> ``` is rendering all of my other components, we wrap it here. Above that bit of code you can see we use the create store function provided by Redux to set a store variable ```store``` . And above that we use compose to gain access to in-browser dev tools to use with Redux. Compose is a functional programming utility, and is included in Redux as a convenience. We want to use it to apply several store enhancers in a row. One of which is Thunk. Thunk is middleware that allows one to send asynchronous requests to an external source by allowing the action creator to return a function rather than an object. That returned function receives the store's dispatch function, and with that we are able to dispatch multiple actions: one to place the state in a loading state, and another to update our store with the returned data.
 
+**Actions**
+
+To use Thunk, convention is to set up the action creators in a folder called actions. I had four action creators in four seperate files. They were to add item to cart, remove item from cart, fetch guitars to display, and fetch items in cart to display. So the total flow of these actions begin upon either a user input or as the component mounts. For example, when a user clicks on an item to add to the cart, the ``` addItem() ``` method is passed a guitar object and is called from the guitars.js component. There a post request is sent to the backend at "http://localhost:3001/items'" and a new item is created. On the frontend the payload from the action, in this case an item object, is added to cart that was initialized in the GuitarsReducers. The inverse is done for the removeItem method. 
+
+
 
