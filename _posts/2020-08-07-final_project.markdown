@@ -49,5 +49,12 @@ The provider is an imported feature that allows all components wrapped inside of
 
 To use Thunk, convention is to set up the action creators in a folder called actions. I had four action creators in four seperate files. They were to add item to cart, remove item from cart, fetch guitars to display, and fetch items in cart to display. So the total flow of these actions begin upon either a user input or as the component mounts. For example, when a user clicks on an item to add to the cart, the ``` addItem() ``` method is passed a guitar object and is called from the guitars.js component. There a post request is sent to the backend at "http://localhost:3001/items'" and a new item is created. On the frontend the payload from the action, in this case an item object, is added to cart that was initialized in the GuitarsReducers. The inverse is done for the removeItem method. 
 
+**Reducer**
+
+My reducer was quite straight forward. The reducer function sets an initial state of the store with an empty array set to 'cart', an empty array set to 'guitars', and two variables representing the total amount of items in a cart and their price. However in the end I had to drop those two variables as I never got them to be set properly. 
+In redux and action is dispatched to the reducer where a switch statement exists to sort out what to do depending on the action's type. My reducer recognizes four actions: 'ADD_ITEM', 'REMOVE_ITEM', 'FETCH_ITEMS', and 'FETCH_GUITARS'. If the action's type doesn't match any of those, then the reducer simply returns the state. 
+
+And thats the crux of it! This project did a really solid job at tying all of the tools and skills ive learned together to make a really cool project. I feel very well equipped going forward to build any number of apps.
+
 
 
