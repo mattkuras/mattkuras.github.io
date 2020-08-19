@@ -59,6 +59,7 @@ Here, we are saving our ```loadState``` function to a variable and adding it as 
 We use the subscribe method as a listener for any changes in our store, which then automatically calls ```saveState()``` with ```store.getState()``` being passed as an argument.
 
 **Conclusion**
+And now when I go to my Cart Component in my application, the correct price is displayed even after a page refresh. I can open up the devtools, go to the application tab, and check under the localStorage object and see my data update.
 
 And thats it! There are numerous ways to persist data depending on whether your data is in the redux store, or a component's local state, but using ```localStorage``` is a good way to persist data from your store. 
 
